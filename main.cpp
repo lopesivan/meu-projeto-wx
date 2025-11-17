@@ -1,4 +1,5 @@
 #include <wx/wx.h>
+#include <wx/statline.h>
 
 // Classe da aplicação principal
 class MyApp : public wxApp {
@@ -79,17 +80,17 @@ MyFrame::MyFrame(const wxString& title)
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
     
     // Título
-    wxStaticText* title = new wxStaticText(panel, wxID_ANY, 
+    wxStaticText* titleText = new wxStaticText(panel, wxID_ANY, 
         "🎨 Demonstração wxWidgets", 
         wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
-    wxFont titleFont = title->GetFont();
-    titleFont.PointSize(16);
+    wxFont titleFont = titleText->GetFont();
+    titleFont.SetPointSize(16);
     titleFont.MakeBold();
-    title->SetFont(titleFont);
-    mainSizer->Add(title, 0, wxALL | wxEXPAND, 10);
+    titleText->SetFont(titleFont);
+    mainSizer->Add(titleText, 0, wxALL | wxEXPAND, 10);
     
     // Separador
-    mainSizer->Add(new wxStaticLine(panel), 0, wxEXPAND | wxALL, 5);
+    mainSizer->Add(new wxStaticLine(panel, wxID_ANY), 0, wxEXPAND | wxALL, 5);
     
     // Label para entrada
     wxStaticText* labelInput = new wxStaticText(panel, wxID_ANY, "Digite seu texto:");
@@ -114,7 +115,7 @@ MyFrame::MyFrame(const wxString& title)
     mainSizer->Add(buttonSizer, 0, wxEXPAND | wxLEFT | wxRIGHT, 10);
     
     // Separador
-    mainSizer->Add(new wxStaticLine(panel), 0, wxEXPAND | wxALL, 5);
+    mainSizer->Add(new wxStaticLine(panel, wxID_ANY), 0, wxEXPAND | wxALL, 5);
     
     // Label para saída
     wxStaticText* labelOutput = new wxStaticText(panel, wxID_ANY, "Resultado:");
@@ -189,4 +190,3 @@ void MyFrame::OnAbout(wxCommandEvent& event) {
         wxOK | wxICON_INFORMATION
     );
 }
-

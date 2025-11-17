@@ -22,7 +22,7 @@ all: init config build
 # Ajuda
 help:
 	@echo "$(CYAN)╔════════════════════════════════════════════╗$(NC)"
-	@echo "$(CYAN)║      wxWidgets Demo - Build System        ║$(NC)"
+	@echo "$(CYAN)║      wxWidgets Demo - Build System         ║$(NC)"
 	@echo "$(CYAN)╚════════════════════════════════════════════╝$(NC)"
 	@echo ""
 	@echo "$(BLUE)📦 Comandos disponíveis:$(NC)"
@@ -51,7 +51,10 @@ init:
 	@echo "$(YELLOW)    Primeira compilação: ~10-20 minutos$(NC)"
 	@echo "$(YELLOW)    Próximas vezes: instantâneo (usa cache)$(NC)"
 	@echo ""
-	conan install . --output-folder=$(BUILD_DIR) --build=missing -s build_type=$(BUILD_TYPE)
+	PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig \
+	conan install . \
+	--output-folder=$(BUILD_DIR) \
+	--build=missing -s build_type=$(BUILD_TYPE)
 	@echo "$(GREEN)✓ Dependências instaladas$(NC)"
 	@echo "$(YELLOW)ℹ  Arquivos gerados em: $(GENERATORS_DIR)$(NC)"
 
@@ -86,7 +89,7 @@ run:
 		exit 1; \
 	fi
 	@echo "$(CYAN)╔════════════════════════════════════════════╗$(NC)"
-	@echo "$(CYAN)║      🎨 Iniciando wxWidgets Demo 🎨      ║$(NC)"
+	@echo "$(CYAN)║      🎨 Iniciando wxWidgets Demo 🎨        ║$(NC)"
 	@echo "$(CYAN)╚════════════════════════════════════════════╝$(NC)"
 	@echo ""
 	@$(EXECUTABLE)
@@ -105,7 +108,7 @@ clean:
 # Info sobre o projeto
 info:
 	@echo "$(CYAN)╔════════════════════════════════════════════╗$(NC)"
-	@echo "$(CYAN)║         Informações do Projeto            ║$(NC)"
+	@echo "$(CYAN)║         Informações do Projeto             ║$(NC)"
 	@echo "$(CYAN)╚════════════════════════════════════════════╝$(NC)"
 	@echo ""
 	@echo "$(BLUE)Build Type:$(NC) $(BUILD_TYPE)"

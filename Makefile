@@ -3,7 +3,7 @@
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 
 configure:
-	cmake -S . -B build -DCMAKE_PREFIX_PATH="${HOME}/wx/linux-wx-3.2.4"
+	cmake -S . -B build -DCMAKE_PREFIX_PATH="${HOME}/.local/wxwidgets/linux-wx-3.2.4"
 
 build:
 	cmake --build build

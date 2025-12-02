@@ -3,7 +3,7 @@
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 
 configure:
-	cmake -S . -B build
+	cmake -S . -B build -DwxWidgets_ROOT_DIR="${HOME}/.local/wxwidgets/linux-cmake-wx-3.3.1"
 
 build:
 	cmake --build build

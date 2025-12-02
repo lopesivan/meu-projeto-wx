@@ -3,7 +3,7 @@ project(app)
 
 # Configurações básicas
 set(PROGRAM "app" CACHE STRING "Nome do executável")
-set(WX_VERSION "3.2.4" CACHE STRING "Versão do wxWidgets")
+set(WX_VERSION "3.3.1" CACHE STRING "Versão do wxWidgets")
 set(WX_DIR "$ENV{HOME}/.local/wxwidgets/linux-cmake-wx-${WX_VERSION}" CACHE PATH "Diretório do wxWidgets")
 
 # Padrão C++
